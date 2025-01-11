@@ -26,8 +26,8 @@
 #include "stdint.h"
 #include "string.h"
 #define BUFFER_SIZE 500  // 缓冲区大小越大占用cpu时间越少
-#define ITERATIONS 10    // 缓起缓停迭代次数
-#define ITERATIONPULSE 8 // 缓起缓停迭代角度
+#define ITERATIONS 15    // 缓起缓停迭代次数
+#define ITERATIONPULSE 20 // 缓起缓停迭代角度
 enum StepMotorState
 {
     BUSY,          // 正在输出脉冲

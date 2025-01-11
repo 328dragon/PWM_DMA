@@ -154,7 +154,7 @@ void StepMotor_t::dmaCallBack(TIM_HandleTypeDef *htim)
     {
         return;
     }
-    HAL_TIM_PWM_Stop_DMA(_tim, _channel);
+    //HAL_TIM_PWM_Stop_DMA(_tim, _channel);
     if (_target_number > 2)
     {
         giveOncePulse(_target_pulse, _target_freq, false);
@@ -175,7 +175,7 @@ void StepMotor_t::dmaCallBack(TIM_HandleTypeDef *htim)
     {
 
     case WaitIteration:
-        if (_iteration == 2 * _itertration_num)
+        if (_iteration == 2 * _itertration_num || _iteration==0)
         {
             _iteration = 0;
             _state = IDLE;

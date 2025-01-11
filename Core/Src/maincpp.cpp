@@ -31,7 +31,7 @@ void main_cpp(void)
     {
       // Motor.giveRPMAngle(debug, debug_hz, true);
       Motor.giveRPMPulseSoft(debug, 6400);
-      // Motor.givePulse(1000,20000);
+       //Motor.givePulse(1000,20000);
     }
 
     // Motor.update(1);
