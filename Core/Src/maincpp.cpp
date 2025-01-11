@@ -29,8 +29,8 @@ void main_cpp(void)
     if (!Motor.isBusy())
     {
       // Motor.giveRPMAngle(debug, debug_hz, true);
-      // Motor.giveRPMPulseSoft(debug, 3200);
-      Motor.givePulse(5000,20000);
+       Motor.giveRPMPulseSoft(debug, 3200);
+      //Motor.givePulse(1000,20000);
     }
 
     Motor.update(1);
