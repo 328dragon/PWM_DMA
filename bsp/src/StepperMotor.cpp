@@ -133,7 +133,7 @@ void StepMotor_t::giveOncePulse(uint32_t pulse, uint32_t freq, bool clearbuffer)
     }
     if (clearbuffer)
     {
-        memset(_buffer, 0, BUFFER_SIZE);
+        memset(_buffer, 0, BUFFER_SIZE*4);
         for (uint16_t i = 0; i < pulse; i += 1)
         {
             uint16_t j = i * period;
@@ -141,7 +141,7 @@ void StepMotor_t::giveOncePulse(uint32_t pulse, uint32_t freq, bool clearbuffer)
         }
     }
 
-    HAL_TIM_PWM_Start_DMA(_tim, _channel, (uint32_t *)_buffer, max_address);
+    HAL_TIM_PWM_Start_DMA(_tim, _channel, (uint32_t *)_buffer, max_address+1);
 }
 void StepMotor_t::dmaCallBack(TIM_HandleTypeDef *htim)
 {

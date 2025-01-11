@@ -156,7 +156,7 @@ public:
     uint16_t _iteration_pulse = ITERATIONPULSE; // 缓启缓停的每圈转速对应的脉冲数
     /*步进电机参数相关*/
     float _StepAngle = 1.8;   // 步进角
-    uint8_t _Subdivision = 8; // 细分
+    uint8_t _Subdivision = 32; // 细分
     /*给一定数量脉冲实现相关*/
     uint16_t _pulse_mod;           // 取余的脉冲数
     uint32_t _target_pulse = 0;    // 给一串脉冲的目标脉冲数
@@ -170,7 +170,7 @@ public:
     uint16_t _ph_pin;                         // 预分频
     uint32_t _clock_base_frequency = 1000000; // 时钟频率经过预分频后的频率
     uint8_t _resolution = 10;                 // 分辨率
-    uint32_t _buffer[BUFFER_SIZE];
+    uint32_t _buffer[BUFFER_SIZE+1]={0};
 };
 
 #endif

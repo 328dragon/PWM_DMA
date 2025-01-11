@@ -20,6 +20,7 @@ void main_cpp(void)
   //HAL_TIM_PWM_Start(&htim8,TIM_CHANNEL_3);
   //__HAL_TIM_SetCompare(&htim8,TIM_CHANNEL_3,5);
   Motor = StepMotor_t(&htim8, TIM_CHANNEL_3, GPIOB, GPIO_PIN_14);
+	
   // Motor.givePulse(2000,1000);
   // Motor.giveRPMAngle(1, 360);
   while (1)
@@ -29,7 +30,7 @@ void main_cpp(void)
     if (!Motor.isBusy())
     {
       // Motor.giveRPMAngle(debug, debug_hz, true);
-       Motor.giveRPMPulseSoft(debug, 3200);
+      Motor.giveRPMPulseSoft(debug, 6400);
       //Motor.givePulse(1000,20000);
     }
 
