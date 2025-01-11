@@ -88,7 +88,6 @@ public:
     {
         return !(_state == IDLE);
     }
-    void update(uint16_t dt);
     /**
      * @brief 缓启缓停转动一定脉冲数
      *
@@ -124,8 +123,6 @@ public:
      * @return uint32_t 脉冲数
      */
     uint32_t angleToPulse(float angle);
-
-public:
     /**
      * @brief 给一定频率一定数量的脉冲,底层通过多次调用giveOncePulse来实现,通过回调来执行下一次调用
      *
@@ -133,6 +130,8 @@ public:
      * @param freq 脉冲的频率
      */
     void givePulse(uint32_t pulse, uint32_t freq = 20000);
+private:
+    
     /**
      * @brief 给一串脉冲,脉冲的频率通过基频的间隔来实现
      *

@@ -10,39 +10,6 @@
  */
 #include "StepMotor.h"
 #define abs(x) ((x) > 0 ? (x) : -(x))
-void StepMotor_t::update(uint16_t dt)
-{
-    // 1ms的时间间隔
-    switch (_state)
-    {
-    case BUSY:
-        return;
-        break;
-    case IDLE:
-        return;
-        break;
-    case Start:
-        _state = WaitIteration;
-        break;
-    case WaitIteration:
-        if (_iteration == 2 * _itertration_num)
-        {
-            _iteration = 0;
-            _state = IDLE;
-        }
-        else
-        {
-            float temp_rpm;
-            uint32_t temp_pulse;
-            getIterationData(temp_rpm, temp_pulse);
-            giveRPMPulse(temp_rpm, temp_pulse);
-            _iteration++;
-        }
-        break;
-    default:
-        break;
-    }
-}
 void StepMotor_t::giveRPMPulseSoft(float rpm, uint32_t pulse, uint16_t target_iteration_num, uint16_t itertion_pulse)
 {
     if (target_iteration_num != 0 && itertion_pulse != 0)
